@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev2": "concurrently \"vite\" \"vercel dev --yes\"",
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"vercel dev --yes\"",
     "dev:frontend": "vite",
     "dev:api": "vercel dev",
     "build": "tsc && vite build",

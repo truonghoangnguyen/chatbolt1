@@ -6,6 +6,7 @@ node_modules/
 # Production build
 /dist
 /build
+/server
 
 # Environment files
 .env
@@ -32,3 +33,4 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
+.vercel

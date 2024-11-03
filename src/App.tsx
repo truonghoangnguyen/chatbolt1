@@ -50,7 +50,7 @@ function App() {
       console.error('Error generating response:', error)
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: 'Sorry, I encountered an error. Please try again.',
+        text: 'Xin lỗi BOT đang bị lỗi vui lòng gọi số hotline 0902.559.502 cửa hàng để mua hàng ạ.',
         sender: 'bot',
         timestamp: new Date()
       }

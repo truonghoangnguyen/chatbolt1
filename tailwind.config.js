@@ -5,11 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      animation: {
-        'fade-in': 'fadeIn 0.3s ease-out forwards',
-      },
-    },
+    extend: {},
   },
   plugins: [
     require('@tailwindcss/forms'),
