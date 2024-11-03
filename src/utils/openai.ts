@@ -11,7 +11,14 @@ export async function generateAIResponse(userInput: string): Promise<string> {
     });
 
     if (!response.ok) {
-      throw new Error('Failed to get response from server');
+      console.error(`Error details x: ${JSON.stringify(response.statusText)}`);
+      const errorDetails = await response.text(); // Try to capture any error message from the server response
+      console.error(`Error details: ${errorDetails} ${JSON.stringify(response)}`);
+      throw new Error(`Failed to get response from server: ${response.status} ${response.statusText}. Details: ${errorDetails}`);
+    }
+
+    if (!response.ok) {
+      throw new Error('Failed to get response from server' );
     }
 
     const data = await response.json();

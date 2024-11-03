@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "note-ng": "run vercel dev",
+    "ghi chu": "vercel dev",
     "dev2": "concurrently \"vite\" \"vercel dev --yes\"",
     "dev": "vite",
     "dev:frontend": "vite",

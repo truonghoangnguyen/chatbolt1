@@ -1,12 +1,15 @@
 
 import OpenAI from 'openai';
+import { stringify } from 'openai/internal/qs/stringify.mjs';
 
 // Initialize OpenAI
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: "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"// process.env.OPENAI_API_KEY
 });
 
 export default async function handler(req, res) {
+  
+  
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,6 +31,7 @@ export default async function handler(req, res) {
   }
 
   try {
+  
     const { message } = req.body;
 
     if (!message) {
@@ -83,7 +87,7 @@ STORE INFORMATION
           content: message
         }
       ],
-      model: "gpt-4-1106-preview",
+      model: "gpt-4o-mini",
     });
 
     const response = completion.choices[0]?.message?.content || 
@@ -91,11 +95,23 @@ STORE INFORMATION
 
     res.status(200).json({ response });
 
-  } catch (error) {
-    console.error('Error generating AI response:', error);
+  }catch (error) {
+    // Log the entire error to console for detailed debugging
+    console.error('ng Error generating AI response:', error);
+
+    // Respond with a 500 error and the error message (in development only)
     res.status(500).json({ 
-      error: 'Failed to generate response',
+      error: 'ng Failed to generate response:' +stringify(error),
       message: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
-  }
+} 
+
+  // catch (error) {
+  //   console.error('ng Error generating AI response:', error);
+  //   res.status(500).json({ 
+  //     error: ' ng Failed to generate response',
+  //     message: stringify(error) //process.env.NODE_ENV === 'development' ? error.message : undefined
+  //   });
+  // }
 }
+ 
