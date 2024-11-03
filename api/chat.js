@@ -112,11 +112,11 @@ Toping
 
   }catch (error) {
     // Log the entire error to console for detailed debugging
-    console.error('ng Error generating AI response:', error);
+    console.error('Full Error Object:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
 
     // Respond with a 500 error and the error message (in development only)
     res.status(500).json({ 
-      error: 'ng Failed to generate response:' +stringify(error),
+      error: 'ng Failed to generate response:' + JSON.stringify(error),
       message: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
 } 
