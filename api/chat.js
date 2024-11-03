@@ -4,8 +4,9 @@ import { stringify } from 'openai/internal/qs/stringify.mjs';
 
 // Initialize OpenAI
 const openai = new OpenAI({
-  apiKey: "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"// process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY
 });
+
 
 export default async function handler(req, res) {
   
@@ -97,7 +98,7 @@ STORE INFORMATION
 
   }catch (error) {
     // Log the entire error to console for detailed debugging
-    console.error('ng Error generating AI response:', error);
+    console.error('ng Error generating AI response:', stringify(error));
 
     // Respond with a 500 error and the error message (in development only)
     res.status(500).json({ 
