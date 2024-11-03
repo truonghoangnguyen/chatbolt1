@@ -8,7 +8,7 @@ interface ChatInputProps {
 const QUICK_ACTIONS = [
   { text: "Cho xem menu", icon: "📋" },
   { text: "Đặt 2 lốc Covang ship tới [địa chỉ]", icon: "🥤" },
-  { text: "Freeship từ bao nhiêu tiền ?", icon: "🛵" },
+  { text: "Freeship như nào ?", icon: "🛵" },
   { text: "Có khuyến mãi gì không ?", icon: "🎁" }
 ];
 
