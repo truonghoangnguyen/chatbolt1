@@ -4,10 +4,7 @@
     "api/chat.js": {
       "runtime": "@vercel/node@3.0.0"
     }
-  },
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  }
+ 
 }
 
