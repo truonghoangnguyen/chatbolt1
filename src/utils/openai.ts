@@ -1,5 +1,6 @@
 const API_URL = '/api/chat';  // Explicitly set to backend port
-
+// test local host
+//const API_URL = "http://localhost:3000/api/chat"
 export async function generateAIResponse(userInput: string): Promise<string> {
   try {
     const response = await fetch(API_URL, {

@@ -1,14 +1,17 @@
 # Dependencies
-node_modules/
+/node_modules
 /.pnp
 .pnp.js
 
-# Production build
-/dist
-/build
-/server
+# Testing
+/coverage
 
-# Environment files
+# Production
+/build
+/dist
+
+# Misc
+.DS_Store
 .env
 .env.local
 .env.development.local
@@ -24,13 +27,11 @@ yarn-error.log*
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# TypeScript
-*.tsbuildinfo
+# Vercel
 .vercel

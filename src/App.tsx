@@ -6,6 +6,7 @@ import { generateChatResponse } from './utils/chatbot'
 
 function App() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const chatContainerRef = useRef<HTMLDivElement>(null)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -17,7 +18,9 @@ function App() {
   const [isTyping, setIsTyping] = useState(false)
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight
+    }
   }
 
   useEffect(() => {
@@ -61,8 +64,8 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+    <div className="flex flex-col h-[600px] bg-gray-100 overflow-hidden">
+      <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.map(message => (
           <ChatMessage key={message.id} message={message} />
         ))}
